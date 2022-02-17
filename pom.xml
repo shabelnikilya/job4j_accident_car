@@ -9,10 +9,6 @@
   <version>1.0</version>
   <packaging>war</packaging>
 
-  <name>job4j_accident_car Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
   <properties>
     <maven.compiler.source>14</maven.compiler.source>
     <maven.compiler.target>14</maven.compiler.target>
