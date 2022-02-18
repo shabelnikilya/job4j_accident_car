@@ -9,17 +9,23 @@
     <title>Accident</title>
 </head>
 <body>
+<h1 align="center">Заявления нарушений</h1>
 <table class="table">
     <thead class="table-dark">
     <tr>
-        <c:forEach items="${headTable}" var="name">
-            <th><c:out value="${name}"/></th>
-        </c:forEach>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Адрес</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-    </tr>
+                <c:forEach items="${accidents}" var="accident">
+                    <tr>
+                        <td><c:out value="${accident.name}"/></td>
+                        <td><c:out value="${accident.text}"/></td>
+                        <td><c:out value="${accident.address}"/></td>
+                    </tr>
+                </c:forEach>
     </tbody>
 </table>
 </body>
