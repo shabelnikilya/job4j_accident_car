@@ -1,6 +1,7 @@
 package ru.job4j.accident.service;
 
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.store.Store;
 
 import java.util.Collection;
@@ -32,5 +33,15 @@ public class AccidentService implements Service {
     @Override
     public void deleteAccident(int id) {
         store.delete(id);
+    }
+
+    @Override
+    public Collection<AccidentType> findAllTypes() {
+        return store.findAllTypes();
+    }
+
+    @Override
+    public AccidentType findTypeById(int id) {
+        return store.findTypeById(id);
     }
 }

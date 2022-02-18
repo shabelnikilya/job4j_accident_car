@@ -17,6 +17,7 @@
         <th>Редактировать</th>
         <th>Название</th>
         <th>Описание</th>
+        <th>Тип</th>
         <th>Адрес</th>
     </tr>
     </thead>
@@ -26,6 +27,7 @@
                         <td><a href="<c:url value="/edit?id=${accident.id}"/>">&#9998</a></td>
                         <td><c:out value="${accident.name}"/></td>
                         <td><c:out value="${accident.text}"/></td>
+                        <td><c:out value="${accident.type.name}"/></td>
                         <td><c:out value="${accident.address}"/></td>
                     </tr>
                 </c:forEach>
