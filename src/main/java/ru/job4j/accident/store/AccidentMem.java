@@ -47,8 +47,10 @@ public class AccidentMem implements Store {
     }
 
     @Override
-    public void add(Accident accident) {
-        accident.setId(ACCIDENTS_ID.incrementAndGet());
+    public void addOrUpdate(Accident accident) {
+        if (accident.getId() == 0) {
+            accident.setId(ACCIDENTS_ID.incrementAndGet());
+        }
         accidents.put(accident.getId(), accident);
     }
 
@@ -57,10 +59,4 @@ public class AccidentMem implements Store {
         accidents.remove(id);
     }
 
-    @Override
-    public void update(Accident accident) {
-        if (accident.getId() != 0) {
-            accidents.put(accident.getId(), accident);
-        }
-    }
 }

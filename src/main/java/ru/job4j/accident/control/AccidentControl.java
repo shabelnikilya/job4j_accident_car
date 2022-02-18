@@ -24,7 +24,7 @@ public class AccidentControl {
     @PostMapping("/update")
     public String update(@ModelAttribute Accident accident, @RequestParam Integer id) {
         accident.setId(id);
-        accidents.update(accident);
+        accidents.addOrUpdate(accident);
         return "redirect:/";
     }
 
@@ -35,7 +35,7 @@ public class AccidentControl {
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident) {
-        accidents.add(accident);
+        accidents.addOrUpdate(accident);
         return "redirect:/";
     }
 }

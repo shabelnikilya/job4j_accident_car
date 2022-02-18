@@ -6,13 +6,11 @@ import java.util.Collection;
 
 public interface Service {
 
-    void saveAccident(Accident accident);
+    void saveOrUpdateAccident(Accident accident);
 
     Collection<Accident> findAll();
 
     Accident findById(int id);
-
-    void updateAccident(Accident accident);
 
     void deleteAccident(int id);
 

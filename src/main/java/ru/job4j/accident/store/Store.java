@@ -10,10 +10,7 @@ public interface Store {
 
     Accident findById(int id);
 
-    void add(Accident accident);
+    void addOrUpdate(Accident accident);
 
     void delete(int id);
-
-    void update(Accident accident);
-
 }

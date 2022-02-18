@@ -14,8 +14,8 @@ public class AccidentService implements Service {
     }
 
     @Override
-    public void saveAccident(Accident accident) {
-        store.add(accident);
+    public void saveOrUpdateAccident(Accident accident) {
+        store.addOrUpdate(accident);
     }
 
     @Override
@@ -28,10 +28,6 @@ public class AccidentService implements Service {
         return store.findById(id);
     }
 
-    @Override
-    public void updateAccident(Accident accident) {
-        store.update(accident);
-    }
 
     @Override
     public void deleteAccident(int id) {
