@@ -6,10 +6,12 @@ import ru.job4j.accident.model.Accident;
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem implements Store {
     private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
+    private static final AtomicInteger ACCIDENTS_ID = new AtomicInteger(3);
 
     private AccidentMem() {
         accidents.put(1, new Accident(1,
@@ -46,6 +48,7 @@ public class AccidentMem implements Store {
 
     @Override
     public void add(Accident accident) {
+        accident.setId(ACCIDENTS_ID.incrementAndGet());
         accidents.put(accident.getId(), accident);
     }
 
@@ -56,7 +59,7 @@ public class AccidentMem implements Store {
 
     @Override
     public void update(Accident accident) {
-        if (accidents.containsKey(accident.getId())) {
+        if (accident.getId() != 0) {
             accidents.put(accident.getId(), accident);
         }
     }

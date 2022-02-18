@@ -10,9 +10,11 @@
 </head>
 <body>
 <h1 align="center">Заявления нарушений</h1>
+
 <table class="table">
     <thead class="table-dark">
     <tr>
+        <th>Редактировать</th>
         <th>Название</th>
         <th>Описание</th>
         <th>Адрес</th>
@@ -21,6 +23,7 @@
     <tbody>
                 <c:forEach items="${accidents}" var="accident">
                     <tr>
+                        <td><a href="<c:url value="/edit?id=${accident.id}"/>">&#9998</a></td>
                         <td><c:out value="${accident.name}"/></td>
                         <td><c:out value="${accident.text}"/></td>
                         <td><c:out value="${accident.address}"/></td>
@@ -28,5 +31,6 @@
                 </c:forEach>
     </tbody>
 </table>
+<div align="center"><a href="<c:url value='/create'/>"><font size="5" color="black">Добавить инцидент</font></a></div>
 </body>
 </html>
