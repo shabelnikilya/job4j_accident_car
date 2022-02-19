@@ -52,6 +52,8 @@ public class AccidentMem implements Store {
         if (accident.getId() == 0) {
             accident.setId(ACCIDENTS_ID.incrementAndGet());
         }
+        AccidentType type = this.findTypeById(accident.getType().getId());
+        accident.setType(type);
         accidents.put(accident.getId(), accident);
     }
 

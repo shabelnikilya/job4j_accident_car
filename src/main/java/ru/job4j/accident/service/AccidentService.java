@@ -29,7 +29,6 @@ public class AccidentService implements Service {
         return store.findById(id);
     }
 
-
     @Override
     public void deleteAccident(int id) {
         store.delete(id);
