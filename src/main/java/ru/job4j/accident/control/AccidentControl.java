@@ -8,7 +8,6 @@ import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.service.AccidentService;
 import ru.job4j.accident.service.Service;
 
-
 @Controller
 public class AccidentControl {
     private final Service service;
