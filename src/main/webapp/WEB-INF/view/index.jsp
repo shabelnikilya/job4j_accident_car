@@ -18,6 +18,7 @@
         <th>Название</th>
         <th>Описание</th>
         <th>Тип</th>
+        <th>Статьи</th>
         <th>Адрес</th>
     </tr>
     </thead>
@@ -28,6 +29,12 @@
                         <td><c:out value="${accident.name}"/></td>
                         <td><c:out value="${accident.text}"/></td>
                         <td><c:out value="${accident.type.name}"/></td>
+                        <td>
+                            <c:forEach items="${accident.rules}" var="rule">
+                                <c:out value="${rule.name}"/><br>
+                            </c:forEach>
+                        </td>
+
                         <td><c:out value="${accident.address}"/></td>
                     </tr>
                 </c:forEach>
