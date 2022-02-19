@@ -37,14 +37,6 @@ public class AccidentMem implements Store {
                 types.get(3)));
     }
 
-    private static final class Instance {
-        private static final Store STORE = new AccidentMem();
-    }
-
-    public static Store getInstance() {
-        return Instance.STORE;
-    }
-
     @Override
     public Collection<Accident> findAll() {
         return accidents.values();

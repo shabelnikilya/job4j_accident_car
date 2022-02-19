@@ -5,43 +5,45 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.store.AccidentMem;
+import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.service.Service;
+
 
 @Controller
 public class AccidentControl {
-    private final AccidentMem accidents;
+    private final Service service;
 
-    public AccidentControl(AccidentMem accidents) {
-        this.accidents = accidents;
+    public AccidentControl(AccidentService accidents) {
+        this.service = accidents;
     }
 
     @GetMapping("/edit")
     public String edit(@RequestParam Integer id, Model model) {
-        model.addAttribute("types", accidents.findAllTypes());
-        model.addAttribute("accident", accidents.findById(id));
+        model.addAttribute("types", service.findAllTypes());
+        model.addAttribute("accident", service.findById(id));
         return "accident/edit";
     }
 
     @PostMapping("/update")
     public String update(@ModelAttribute Accident accident, @RequestParam Integer id) {
-        AccidentType type = accidents.findTypeById(accident.getType().getId());
+        AccidentType type = service.findTypeById(accident.getType().getId());
         accident.setId(id);
         accident.setType(type);
-        accidents.addOrUpdate(accident);
+        service.saveOrUpdateAccident(accident);
         return "redirect:/";
     }
 
     @GetMapping("/create")
     public String create(Model model) {
-        model.addAttribute("types", accidents.findAllTypes());
+        model.addAttribute("types", service.findAllTypes());
         return "accident/create";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident) {
-        AccidentType type = accidents.findTypeById(accident.getType().getId());
+        AccidentType type = service.findTypeById(accident.getType().getId());
         accident.setType(type);
-        accidents.addOrUpdate(accident);
+        service.saveOrUpdateAccident(accident);
         return "redirect:/";
     }
 }
