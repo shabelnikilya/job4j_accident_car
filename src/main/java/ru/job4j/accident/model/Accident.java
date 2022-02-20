@@ -15,7 +15,7 @@ public class Accident {
     private String address;
     @ManyToOne(fetch = FetchType.LAZY)
     private AccidentType type;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "accidents_rules", joinColumns = {
             @JoinColumn(name = "accident_id", nullable = false, updatable = false)},
             inverseJoinColumns = {

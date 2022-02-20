@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.service.AccidentRepositoryService;
 import ru.job4j.accident.service.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AccidentControl {
     private final Service service;
 
-    public AccidentControl(AccidentService accidents) {
+    public AccidentControl(AccidentRepositoryService accidents) {
         this.service = accidents;
     }
 

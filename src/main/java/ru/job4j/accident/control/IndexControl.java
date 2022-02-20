@@ -4,13 +4,14 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.job4j.accident.service.AccidentService;
+import ru.job4j.accident.service.AccidentRepositoryService;
+import ru.job4j.accident.service.Service;
 
 @Controller
 public class IndexControl {
-    private final AccidentService service;
+    private final Service service;
 
-    public IndexControl(AccidentService service) {
+    public IndexControl(AccidentRepositoryService service) {
         this.service = service;
     }
 
