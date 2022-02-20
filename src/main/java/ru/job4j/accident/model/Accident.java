@@ -59,6 +59,17 @@ public class Accident {
         this.rules = rules;
     }
 
+    public static Accident of(int id, String name, String text, String address, AccidentType type, Set<Rule> rules) {
+        Accident accident = new Accident();
+        accident.setId(id);
+        accident.setName(name);
+        accident.setText(text);
+        accident.setAddress(address);
+        accident.setType(type);
+        accident.setRules(rules);
+        return accident;
+    }
+
     public int getId() {
         return id;
     }

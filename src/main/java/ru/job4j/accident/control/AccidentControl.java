@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.service.AccidentService;
 import ru.job4j.accident.service.Service;
+import ru.job4j.accident.store.AccidentJdbcTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 

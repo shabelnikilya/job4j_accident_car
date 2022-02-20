@@ -3,16 +3,16 @@ package ru.job4j.accident.service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.store.Store;
+import ru.job4j.accident.store.AccidentJdbcTemplate;
 
 import java.util.Collection;
 import java.util.Set;
 
 @org.springframework.stereotype.Service
 public class AccidentService implements Service {
-    private final Store store;
+    private final AccidentJdbcTemplate store;
 
-    public AccidentService(Store store) {
+    public AccidentService(AccidentJdbcTemplate store) {
         this.store = store;
     }
 

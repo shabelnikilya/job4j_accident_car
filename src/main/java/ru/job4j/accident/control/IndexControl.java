@@ -6,12 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.job4j.accident.service.AccidentService;
 import ru.job4j.accident.service.Service;
+import ru.job4j.accident.store.AccidentJdbcTemplate;
 
 @Controller
 public class IndexControl {
-    private final Service service;
+    private final AccidentJdbcTemplate service;
 
-    public IndexControl(AccidentService service) {
+    public IndexControl(AccidentJdbcTemplate service) {
         this.service = service;
     }
 
