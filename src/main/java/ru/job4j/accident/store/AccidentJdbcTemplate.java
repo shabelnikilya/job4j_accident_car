@@ -14,7 +14,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Repository
+/*
+@Repository - убрана аннотация чтобы не было конфликтов бинов spring
+ */
+
 public class AccidentJdbcTemplate implements Store {
     private final JdbcTemplate jdbc;
 

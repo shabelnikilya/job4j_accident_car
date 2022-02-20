@@ -3,6 +3,7 @@ package ru.job4j.accident.service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
+import ru.job4j.accident.store.AccidentHibernate;
 import ru.job4j.accident.store.AccidentJdbcTemplate;
 
 import java.util.Collection;
@@ -10,11 +11,11 @@ import java.util.Set;
 
 @org.springframework.stereotype.Service
 public class AccidentService implements Service {
-    private final AccidentJdbcTemplate store;
+    private final AccidentHibernate store;
 
-    public AccidentService(AccidentJdbcTemplate store) {
-        this.store = store;
-    }
+    public AccidentService(AccidentHibernate store) {
+    this.store = store;
+}
 
     @Override
     public void saveOrUpdateAccident(Accident accident) {
