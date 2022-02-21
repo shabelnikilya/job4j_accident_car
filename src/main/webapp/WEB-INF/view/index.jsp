@@ -11,7 +11,7 @@
 <body>
 <h1 align="center">Заявления нарушений</h1>
     <div style="color:#131313;" align="right">
-        Ваше имя - <strong>${userName}</strong>
+        Ваше имя - <strong>${user.username}</strong>
         <br><a href="<c:url value='/logout'/>"><font color="black">Войти из аккаунта</font></a>
     </div>
 <table class="table">

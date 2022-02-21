@@ -21,7 +21,7 @@ public class IndexControl {
     public String index(Model model) {
         model.addAttribute("accidents", service.findAll());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        model.addAttribute("userName", authentication.getName());
+        model.addAttribute("user", authentication.getPrincipal());
         return "index";
     }
 }
