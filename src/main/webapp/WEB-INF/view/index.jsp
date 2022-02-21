@@ -10,7 +10,10 @@
 </head>
 <body>
 <h1 align="center">Заявления нарушений</h1>
-
+    <div style="color:#131313;" align="right">
+        Ваше имя - <strong>${userName}</strong>
+        <br><a href="<c:url value='/logout'/>"><font color="black">Войти из аккаунта</font></a>
+    </div>
 <table class="table">
     <thead class="table-dark">
     <tr>

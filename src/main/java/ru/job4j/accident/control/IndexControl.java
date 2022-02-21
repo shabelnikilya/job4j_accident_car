@@ -1,5 +1,7 @@
 package ru.job4j.accident.control;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -18,6 +20,8 @@ public class IndexControl {
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("accidents", service.findAll());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("userName", authentication.getName());
         return "index";
     }
 }
