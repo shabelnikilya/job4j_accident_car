@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
+<h1>Авторизация</h1>
 <c:if test="${not empty errorMessage}">
     <div style="color:red; font-weight: bold; margin: 30px 0px;">
             ${errorMessage}
@@ -18,10 +19,11 @@
             <td><input type='password' name='password'/></td>
         </tr>
         <tr>
-            <td colspan='2'><input name="submit" type="submit" value="submit" /></td>
+            <td colspan='2'><input name="submit" type="submit" value="login" /></td>
         </tr>
     </table>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
+<a href="<c:url value='/reg'/>" style="color: black">Регистрация</a>
 </body>
 </html>

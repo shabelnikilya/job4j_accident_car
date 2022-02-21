@@ -1,27 +1,31 @@
 package ru.job4j.accident.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "users")
 public class User {
-    private String userName;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private String password;
+
+    private String username;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "authority_id")
+    private Authority authority;
+
     private boolean enabled;
 
-    public User() {
+    public int getId() {
+        return id;
     }
 
-    public User(String userName, String password, boolean enabled) {
-        this.userName = userName;
-        this.password = password;
-        this.enabled = enabled;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPassword() {
@@ -30,6 +34,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
     }
 
     public boolean isEnabled() {
@@ -49,11 +69,11 @@ public class User {
             return false;
         }
         User user = (User) o;
-        return Objects.equals(userName, user.userName);
+        return id == user.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userName);
+        return Objects.hash(id);
     }
 }
