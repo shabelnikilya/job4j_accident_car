@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AccidentControl {
-    private final Service service;
+    private final AccidentRepositoryService service;
 
     public AccidentControl(AccidentRepositoryService accidents) {
         this.service = accidents;
